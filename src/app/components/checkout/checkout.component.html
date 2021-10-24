@@ -1,0 +1,59 @@
+<section class="single-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="single-content">
+                    <h2>Xác nhận thanh toán</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/home']">Trang chủ</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Thanh toán
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="checkout-part">
+    <form [formGroup]="postForm" class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-2">
+                <div class="row checkout-form">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <h3>Thông tin nhận hàng</h3>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-lg-12 mt-4">
+                        <div class="form-group"><input type="text" class="form-control" [value]="cart.user.name" readonly placeholder="Họ và tên"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group"><input type="text" class="form-control" [value]="cart.user.address" placeholder="Địa chỉ" >
+                            <small class="invalid-feedback">Địa chỉ không hợp lệ</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group"><input type="text" class="form-control" [value]="cart.user.phone" placeholder="Số điện thoại">
+                            <small class="invalid-feedback">Số điện thoại không hợp lệ</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="checkout-charge">
+                    <ul>
+                        <li><span>Tổng tiền</span><span>{{amountReal | currency:'VND'}}</span></li>
+                        <li><span>Tiết kiệm</span><span>{{discount | currency:'VND'}}</span></li>
+                        <li><span>Tổng tiền phải trả</span><span>{{amount | currency:'VND'}}</span></li>
+                    </ul>
+                </div>
+                <div class="check-order-btn"><button class="btn btn-inline" (click)="checkOut()"><i
+                            class="fas fa-paper-plane"></i><span>Xác nhận thanh toán</span></button></div>
+            </div>
+        </div>
+    </form>
+</section>

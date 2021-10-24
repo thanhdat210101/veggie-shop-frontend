@@ -1,0 +1,74 @@
+<div class="sign-form">
+    <div class="sign-cate">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#signin" class="nav-link active" data-toggle="tab">Đăng nhập</a>
+            </li>
+            <li>
+                <a href="#signup" class="nav-link" data-toggle="tab">Đăng ký</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-pane active" id="signin">
+        <div class="sign-heading">
+            <h2>Đăng nhập</h2>
+            <p>Sử dụng thông tin đăng nhập để truy cập tài khoản của bạn.</p>
+        </div>
+        <form class="form" [formGroup]="loginForm">
+            <label class="form-label"><input type="text" formControlName="email" placeholder="Email" /><small>Hãy nhập
+                    đúng định dạng email</small></label><label class="form-label"><input type="password" [type]="show ? 'text' : 'password'"
+                    formControlName="password" id="pass" placeholder="Password" /><button type="button" (click)="toggle()">
+                    <i class="eye fas fa-eye"></i></button><small>Hãy nhập đúng định dạng mật khẩu ( > 6 kí
+                    tự)</small></label><label class="form-link">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signin-check" /><label
+                        class="custom-control-label" for="signin-check">Ghi nhớ tài khoản?</label>
+    </div>
+    <a href="#">Quên mật khẩu?</a>
+    </label><label class="form-btn"><button (click)="sign_in()" type="submit" class="btn btn-outline">
+                    Đăng nhập
+                </button></label>
+    </form>
+</div>
+<div class="tab-pane" id="signup">
+    <div class="sign-heading">
+        <h2>Đăng ký</h2>
+        <p>Thiết lập một tài khoản mới.</p>
+    </div>
+    <form class="form" [formGroup]="registerForm">
+
+        <label class="form-label"><input type="text" formControlName="email" placeholder="Email" /> <small>Please follow this example
+                    - example@gmail.com</small></label>
+
+                    <div class="input-group mb-3">
+                      <input type="text" maxlength="6"
+                      [ngClass]="{'is-invalid':registerForm.get('otp')?.touched && registerForm.get('otp')?.invalid}"
+                      formControlName="otp" placeholder="OTP" name="otp" id="otp" class="form-control">
+                      <span class="input-group-text" style="font-size: 90%; cursor: pointer;"
+                      (click)="registerForm.get('email')?.valid?sendOtp():sendError()">Lấy OTP</span>
+                    </div>
+                    <label class="form-label"><input type="text" formControlName="name" placeholder="Name" /><small>Please Enter Your Name</small></label>
+                    <label class="form-label"><input type="password" id="pass"
+                    placeholder="Password" /><button type="button">
+                    <i class="eye fas fa-eye"></i></button><small>Password must be 6 characters</small></label><label class="form-label">
+                      <input type="password" id="pass"  formControlName="password" placeholder="Repeat Password" /><button
+                    type="button"><i class="eye fas fa-eye"></i></button><small>Password must be 6
+                    characters</small></label>
+                    <label class="form-label"><input type="text" formControlName="phone" placeholder="Number Phone" /><small>Please follow this example
+                      - example@gmail.com</small></label>
+                      <label class="form-label"><input type="text" formControlName="address" placeholder="Address" /><small>Please follow this example
+                        - example@gmail.com</small></label>
+
+        <div class="form-link">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="signup-check" /><label class="custom-control-label" for="signup-check">Tôi đồng ý với tất cả các điều khoản.</label>
+            </div>
+        </div>
+        <div class="form-btn">
+            <button type="submit" (click)="sign_up()" class="btn btn-outline">
+                    Đăng ký miễn phí
+                </button>
+        </div>
+    </form>
+</div>
+</div>
